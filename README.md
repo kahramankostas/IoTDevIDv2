@@ -91,7 +91,7 @@ Since these UNSW data are very large, we filter the data on a device and session
 #### Section IV.A in the article
 This chapter contains three  files.
    
-* **[02.1 Feature importance voting and pre-assessment of features](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0002%20Feature%20Selection/02.1%20Feature%20importance%20voting%20and%20pre-assessment%20of%20features.ipynb)**
+* **[02.1 Feature importance voting and pre-assessment of features: ](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0002%20Feature%20Selection/02.1%20Feature%20importance%20voting%20and%20pre-assessment%20of%20features.ipynb)**
 This step contains the  file. This file calculates the importance scores for each feature using six feature score calculation methods. It then votes features using these scores. It lists the features scores and the votes they have received and shows them on the graph. The six feature importance score calculation methods used are as follows.
 
     * Information Value using Weight of evidence.
@@ -101,12 +101,11 @@ This step contains the  file. This file calculates the importance scores for eac
     * Chi-Square best variables.
     *  L1-based feature selection.
 
-* **[02.2 Comparison of isolated data and CV methods](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0002%20Feature%20Selection/02.2%20Comparison%20of%20isolated%20and%20CV%20methods.ipynb)**
-
+* **[02.2 Comparison of isolated data and CV methods: ](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0002%20Feature%20Selection/02.2%20Comparison%20of%20isolated%20and%20CV%20methods.ipynb)**
 In this file, the results of the isolated test-training data and the cross-validated data are compared.
 
 
-* **[02.3 Feature selection process using genetic algorithm](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0002%20Feature%20Selection/02.3%20Feature%20selection%20process%20using%20genetic%20algorithm%20Aalto.ipynb)**
+* **[02.3 Feature selection process using genetic algorithm: ](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0002%20Feature%20Selection/02.3%20Feature%20selection%20process%20using%20genetic%20algorithm%20Aalto.ipynb)**
 In this file, feature selection is performed by using genetic algorithms.
 
 ## 03 Algorithm Selection 
@@ -115,7 +114,7 @@ In this file, feature selection is performed by using genetic algorithms.
 This chapter contains two  files.
 
 
-* **[03.1 Hyperparameter Optimization](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0003%20Algorithm%20Selection/03.%201%20Hyperparameter%20Optimization.ipynb)**
+* **[03.1 Hyperparameter Optimization: ](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0003%20Algorithm%20Selection/03.%201%20Hyperparameter%20Optimization.ipynb)**
 In this file, hyperparameter optimization is applied via [sklearn-Randomizedsearch](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html) for the machine learning methods to be used. These machine learning methods are:
     * Decision Trees (DT)
     * Naïve Bayes (NB)
@@ -124,8 +123,7 @@ In this file, hyperparameter optimization is applied via [sklearn-Randomizedsear
     * Random Forest (RF)
     * Support Vector Machine (SVM)
 
-* **[03. 2 Classification of Individual packets for Aalto Dataset](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0003%20Algorithm%20Selection/03.%202%20Classification%20of%20Individual%20packets%20for%20Aalto%20Dataset.ipynb)**
-
+* **[03. 2 Classification of Individual packets for Aalto Dataset: ](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0003%20Algorithm%20Selection/03.%202%20Classification%20of%20Individual%20packets%20for%20Aalto%20Dataset.ipynb)**
 This file makes machine learning application for the individual packets of Aalto University dataset using the methods mentioned above and the hyperparameters.
 
 
@@ -134,22 +132,18 @@ This file makes machine learning application for the individual packets of Aalto
 #### Section V  in the article
 This chapter contains four  files. In our experiments above, we found that DT offers the best balance between predictive performance and inference time among other machine learning methods. Therefore, only DT is used in all our subsequent experiments.
 
-* **[04.1 Determination of aagregetion size]()**
-
+* **[04.1 Determination of aagregetion size: ](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0004%20Performance%20Evaluation/04.1%20Determination%20of%20aagregetion%20size.ipynb)**
 In this file, different aggregation sizes are tested. For this purpose, groups of different sizes  (from 2 to 25) are formed and the performance results of these groups are observed.
 
-* **[04.2 Classification of ind-aag-mixed packets for Aalto Dataset]()**
-
+* **[04.2 Classification of ind-aag-mixed packets for Aalto Dataset: ](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0004%20Performance%20Evaluation/04.2%20Classification%20of%20ind-aag-mixed%20packets%20for%20Aalto%20Dataset.ipynb)**
 In this file, results are obtained for the Aalto dataset using individual, aggregated and mixed methods. Group size was used  as 13  in the aggregation  operations.
 
 
-* **[04.3 Classification of  ind-aag-mixed packets for UNSW Dataset]()**
-
+* **[04.3 Classification of  ind-aag-mixed packets for UNSW Dataset: ](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0004%20Performance%20Evaluation/04.3%20Classification%20of%20%20ind-aag-mixed%20packets%20for%20UNSW%20Dataset.ipynb)**
 In this file, results are obtained for the UNSW dataset using individual, aggregated and mixed methods. Group size was used  as 13  in the aggregation  operations.
 
 
-* **[04.4 Aalto results with combined labels]()**
-
+* **[04.4 Aalto results with combined labels: ](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0004%20Performance%20Evaluation/04.4%20Aalto%20results%20with%20combined%20labels.ipynb)**
 In this file,  to deal with the poor performance caused by the fact that the Aalto dataset contains many very similar devices, these similar devices are considered as a group and collected under the same label. 
 
 
@@ -158,12 +152,10 @@ In this file,  to deal with the poor performance caused by the fact that the Aal
 
 This chapter contains two  files.
 
-* **[05.1 Aalto IoTSense & IoTSentinel  Normal, Aagregeted, Mixed Results]()**
-
+* **[05.1 Aalto IoTSense & IoTSentinel  Normal, Aagregeted, Mixed Results: ](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0005%20compare%20with%20others/05.1%20Aalto%20IoTSense%20%26%20IoTSentinel%20%20Normal%2C%20Aagregeted%2C%20Mixed%20Results.ipynb)**
 This file makes machine learning application using Aalto University data for 3 studies (IoTDevID, [IoTSense](https://dl.acm.org/doi/pdf/10.1145/3266444.3266452), [IoT Sentinel](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7980167)) with a individual, aggregated and mixed approach in order to compare the featureset  performances.
 
-* **[05.2 UNSW IoTSense & IoTSentinel  Normal, Aagregeted, Mixed Results]()**
-
+* **[05.2 UNSW IoTSense & IoTSentinel  Normal, Aagregeted, Mixed Results: ](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0005%20compare%20with%20others/05.2%20UNSW%20IoTSense%20%26%20IoTSentinel%20%20Normal%2C%20Aagregeted%2C%20Mixed%20Results.ipynb)**
 This file makes machine learning application using UNSW data for 3 studies (IoTDevID, [IoTSense](https://dl.acm.org/doi/pdf/10.1145/3266444.3266452), [IoT Sentinel](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=7980167)) with a individual, aggregated and mixed approach in order to compare the featureset  performances.
 
 

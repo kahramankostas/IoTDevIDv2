@@ -1,0 +1,16 @@
+digraph Tree {
+node [shape=box, style="filled", color="black"] ;
+0 [label="TCP_sport <= 50752.5\ngini = 0.276\nsamples = 2737\nvalue = [2284, 453]\nclass = 0", fillcolor="#ea9a60"] ;
+1 [label="gini = 0.0\nsamples = 2003\nvalue = [2003, 0]\nclass = 0", fillcolor="#e58139"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="sport <= 51079.5\ngini = 0.473\nsamples = 734\nvalue = [281, 453]\nclass = 1", fillcolor="#b4daf5"] ;
+0 -> 2 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+3 [label="dport <= 4867.5\ngini = 0.034\nsamples = 461\nvalue = [8, 453]\nclass = 1", fillcolor="#3c9fe5"] ;
+2 -> 3 ;
+4 [label="gini = 0.0\nsamples = 8\nvalue = [8, 0]\nclass = 0", fillcolor="#e58139"] ;
+3 -> 4 ;
+5 [label="gini = 0.0\nsamples = 453\nvalue = [0, 453]\nclass = 1", fillcolor="#399de5"] ;
+3 -> 5 ;
+6 [label="gini = 0.0\nsamples = 273\nvalue = [273, 0]\nclass = 0", fillcolor="#e58139"] ;
+2 -> 6 ;
+}

@@ -92,8 +92,7 @@ Since these UNSW data are very large, we filter the data on a device and session
 This chapter contains three  files.
    
 * **[02.1 Feature importance voting and pre-assessment of features](https://github.com/kahramankostas/IoTDevIDv2/blob/main/0002%20Feature%20Selection/02.1%20Feature%20importance%20voting%20and%20pre-assessment%20of%20features.ipynb)**
-
-This step contains the  file. This file calculates the importance scores for each feature using six feature score calculation methods. It then votes features using these scores. It lists the features scores and the votes they have received and shows them on the graph. The six feature importance score calculation methods used are as follows.
+* This step contains the  file. This file calculates the importance scores for each feature using six feature score calculation methods. It then votes features using these scores. It lists the features scores and the votes they have received and shows them on the graph. The six feature importance score calculation methods used are as follows.
 
     * Information Value using Weight of evidence.
     * Variable Importance using Random Forest.

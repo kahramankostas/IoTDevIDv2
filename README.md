@@ -88,24 +88,21 @@ Since these UNSW data are very large, we filter the data on a device and session
 
 
 In addition, the CSVs.zip file contains the feature sets that are the output of this step and that we used in our experiments. These Files:
+* Aalto_test_IoTDevID.csv
+* Aalto_train_IoTDevID.csv
+* Aalto_IoTSense_Test.csv
+* Aalto_IoTSense_Train.csv
+* Aalto_IoTSentinel_Test.csv
+* Aalto_IoTSentinel_Train.csv
+* UNSW_test_IoTDevID.csv
+* UNSW_train_IoTDevID.csv
+* UNSW_IoTSense_Test.csv
+* UNSW_IoTSense_Train.csv
+* UNSW_IoTSentinel_Test.csv
+* UNSW_IoTSentinel_Train.csv
 
-Aalto_IoTSense_Test.csv
-Aalto_IoTSense_Train.csv
-Aalto_IoTSentinel_Test.csv
-Aalto_IoTSentinel_Train.csv
-Aalto_test_IoTDevID.csv
-Aalto_train_IoTDevID.csv
-UNSW_IoTSense_Test.csv
-UNSW_IoTSense_Train.csv
-UNSW_IoTSentinel_Test.csv
-UNSW_IoTSentinel_Train.csv
-UNSW_test_IoTDevID.csv
-UNSW_train_IoTDevID.csv
 
 
-| Aalto_test_IoTDevID.csv | Aalto_train_IoTDevID.csv | Aalto_IoTSense_Test.csv | Aalto_IoTSense_Train.csv |
-| Aalto_IoTSentinel_Test.csv | Aalto_IoTSentinel_Train.csv | UNSW_test_IoTDevID.csv | UNSW_train_IoTDevID.csv |
-| UNSW_IoTSense_Test.csv | UNSW_IoTSense_Train.csv | UNSW_IoTSentinel_Test.csv | UNSW_IoTSentinel_Train.csv |
 
 ## 02 Feature Selection 
 

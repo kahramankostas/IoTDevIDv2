@@ -186,7 +186,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 If you use the source code please cite the following paper:
 
 ```
-@misc{kostas2021iotdevid,
+@misc{kostas2021iotdevid2,
       title={{IoTDevID}: A Behavior-Based Device Identification Method for the {IoT}}, 
       author={Kahraman Kostas and Mike Just and Michael A. Lones},
       year={2021},

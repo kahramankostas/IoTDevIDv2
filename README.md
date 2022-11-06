@@ -198,6 +198,6 @@ If you use the source code please cite the following paper:
 
 Contact:
 *Kahraman Kostas
-kk97@hw.ac.uk*
+kahramankostas@gmail.com*
 
 

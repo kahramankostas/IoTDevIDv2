@@ -3,8 +3,8 @@
 # Overview
 In this repository you will find a Python implementation of the methods in the paper IoTDevID: A Behavior-Based Device Identification Method for the IoT.
 
-
-[*Kahraman  Kostas,  Mike  Just,  and  Michael  A.  Lones. IoTDevID: A Behavior-Based Device Identification Method for the IoT, arXiv preprint, arxiv:2102.08866v2, 2021.*](https://arxiv.org/abs/2102.08866v2)
+[*Kahraman  Kostas,  Mike  Just,  and  Michael  A.  Lones. IoTDevID: A Behavior-Based Device Identification Method for the IoT, IEEE Internet of Things Journal, 2022.*](https://ieeexplore.ieee.org/document/9832419)
+[*Kahraman  Kostas,  Mike  Just,  and  Michael  A.  Lones. IoTDevID: A Behavior-Based Device Identification Method for the IoT, arXiv preprint, arxiv:2102.08866v2, 2022.*](https://arxiv.org/abs/2102.08866v2)
 
 # What is IoTDevID?
 

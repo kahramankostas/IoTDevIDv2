@@ -1,0 +1,13 @@
+# IMPORTANT !!!
+# Since the Xverse library has not been updated for a long time, unfortunately it does not work on versions newer than Python3.6.
+# If you are having problems with Xverse, please  try to use Python3.6.
+# However, you should have no problems with the latest versions of other modules except Xverse.
+
+sklearn
+scipy 
+numpy 
+matplotlib
+xverse
+graphviz 
+seaborn 
+scapy

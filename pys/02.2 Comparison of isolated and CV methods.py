@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # In[1]:
@@ -17,7 +17,7 @@ from random import random
 from sklearn import metrics
 
 from sklearn.metrics import confusion_matrix
-from sklearn.model_selection import KFold
+#from sklearn.model_selection import KFold
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
@@ -319,6 +319,12 @@ df = pd.concat(frames)
 df.to_csv('Temp.csv', index=False)
 
 
+# In[ ]:
+
+
+
+
+
 # In[18]:
 
 
@@ -340,7 +346,7 @@ def ML_CV(loop1,loop2,output_csv,cols,step,x,dname):
         cv=0
         for i in range(repetition):
             rnd = random()
-            kfold = KFold(fold, True, int(rnd*100))  
+            kfold = sklearn.model_selection.KFold(n_splits=fold, shuffle=True, random_state=int(rnd*100))
             cv=0
             df = pd.read_csv(loop1,usecols=cols)#,header=None )
             #del df["MAC"] # if dataset has MAC colomn please uncomment this line

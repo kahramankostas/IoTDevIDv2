@@ -1,7 +1,7 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
-# In[30]:
+# In[2]:
 
 
 import csv
@@ -15,7 +15,7 @@ import sklearn
 import time
 
 
-# In[31]:
+# In[3]:
 
 
 import warnings
@@ -24,7 +24,7 @@ warnings.filterwarnings("ignore")
 
 # # create binary datasets
 
-# In[32]:
+# In[4]:
 
 
 def folder(f_name): #this function creates a folder.
@@ -35,7 +35,7 @@ def folder(f_name): #this function creates a folder.
         print ("The folder could not be created!")
 
 
-# In[33]:
+# In[6]:
 
 
 def target_name(name):
@@ -48,7 +48,7 @@ train="./Aalto_train_IoTDevID.csv"
 device_names=target_name(train)
 
 
-# In[34]:
+# In[7]:
 
 
 folder("devicebasedcsvs")
@@ -56,8 +56,7 @@ folder("tree")
 folder("results")
 
 
-# In[35]:
-
+# In[8]:
 
 
 for device in device_names:
@@ -82,7 +81,7 @@ for device in device_names:
 
 # # create decision tree diagrams
 
-# In[36]:
+# In[10]:
 
 
 from sklearn import tree
@@ -105,22 +104,21 @@ def ciz(name,model,feature_names,target_names):
 
 # # ML Application
 
-# In[37]:
+# In[12]:
 
 
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import classification_report
-from sklearn.model_selection import KFold
 from random import random
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import balanced_accuracy_score
-from sklearn.ensemble.bagging import BaggingClassifier
-from sklearn.ensemble.forest import ExtraTreesClassifier
-from sklearn.ensemble.forest import RandomForestClassifier
+from sklearn.ensemble import BaggingClassifier
+from sklearn.ensemble import ExtraTreesClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 
-# In[38]:
+# In[13]:
 
 
 def find_the_way(path,file_format):
@@ -135,13 +133,13 @@ name_list=find_the_way('./devicebasedcsvs','.csv')
 name_list
 
 
-# In[39]:
+# In[14]:
 
 
 ml_list={"DT":DecisionTreeClassifier()}
 
 
-# In[40]:
+# In[15]:
 
 
 def score(altime,train_time,test_time,predict,y_test,class_based_results,i,cv,dname,ii):
@@ -179,7 +177,7 @@ def score(altime,train_time,test_time,predict,y_test,class_based_results,i,cv,dn
     return lines,class_based_results
 
 
-# In[41]:
+# In[16]:
 
 
 def ML(loop1,loop2,output_csv,cols,step,Tree):
@@ -200,7 +198,8 @@ def ML(loop1,loop2,output_csv,cols,step,Tree):
         cv=0
         for i in range(repetition):
             rnd = random()
-            kfold = KFold(fold, True, int(rnd*100))  
+            kfold = sklearn.model_selection.KFold(n_splits=fold, shuffle=True, random_state=int(rnd*100))
+            
             cv=0
             df = pd.read_csv(loop1,usecols=cols)#,header=None )
             #del df["MAC"] # if dataset has MAC colomn please uncomment this line
@@ -283,7 +282,7 @@ def ML(loop1,loop2,output_csv,cols,step,Tree):
     ths.close()  
 
 
-# In[42]:
+# In[17]:
 
 
 features=['pck_size', 'Ether_type', 'LLC_dsap', 'LLC_ssap', 'LLC_ctrl',
@@ -306,13 +305,13 @@ features=['pck_size', 'Ether_type', 'LLC_dsap', 'LLC_ssap', 'LLC_ctrl',
        'UDP_dport', 'payload_bytes', 'entropy', 'Protocol', 'Label']
 
 
-# In[43]:
+# In[18]:
 
 
 len(features)
 
 
-# In[44]:
+# In[19]:
 
 
 for i in name_list:
@@ -326,13 +325,24 @@ for i in name_list:
 # # voting process for device csv files
 # # each voting action is saved in a separate csv file
 
-# In[45]:
+# # IMPORTANT !!!
+# 
+# # Xverse library crashes on versions greater than Python3.6. If you get an error, try Python3.6
+# # we used Python 3.6.6 version in this application
+
+# In[ ]:
+
+
+
+
+
+# In[20]:
 
 
 from xverse.ensemble import VotingSelector
 
 
-# In[46]:
+# In[21]:
 
 
 for i in name_list:
@@ -357,7 +367,7 @@ for i in name_list:
     print(clf.feature_votes_)
 
 
-# In[47]:
+# In[22]:
 
 
 df.columns
@@ -365,14 +375,14 @@ df.columns
 
 # # calculate the average of the votes
 
-# In[48]:
+# In[23]:
 
 
 name_list=find_the_way('./results/','_VETO_.csv')
 name_list
 
 
-# In[49]:
+# In[24]:
 
 
 df_add = pd.DataFrame(columns=[ 'Information_Value', 'Random_Forest',
@@ -387,7 +397,7 @@ for i in name_list:
     
 
 
-# In[50]:
+# In[25]:
 
 
 df=df_add/27
@@ -395,7 +405,7 @@ df=df.sort_values(['Votes'], ascending=[False])
 df.to_csv("veto_average_results.csv")
 
 
-# In[51]:
+# In[26]:
 
 
 df
@@ -403,7 +413,7 @@ df
 
 # # Creating the voting process result graph
 
-# In[52]:
+# In[27]:
 
 
 data = pd.read_csv("veto_average_results.csv")
@@ -412,7 +422,7 @@ new = data[['Variable_Name', 'Votes']].copy()
 new
 
 
-# In[53]:
+# In[28]:
 
 
 graph_name="Feature Selection with Voting.PDF"
@@ -436,4 +446,63 @@ ax = sns.barplot(x="Variable_Name",color='b', y="Votes", data=new)
 plt.xlabel('Feature Name')
 plt.savefig(graph_name,bbox_inches='tight',format="pdf")#, dpi=400)
 plt.show()
+
+
+# In[29]:
+
+
+data = pd.read_csv("veto_average_results.csv",index_col="Variable_Name")
+del data["Votes"]
+
+
+# In[30]:
+
+
+graph_name="Feature Selection with Voting2.PDF"
+import seaborn as sns
+sns.set_theme(style="darkgrid")
+params = {'legend.fontsize': 'x-large',
+          'figure.figsize': (10, 5),
+         'axes.labelsize': 'x-large',
+         'axes.titlesize':'x-large',
+         'xtick.labelsize':'medium',
+         'ytick.labelsize':'x-large'}
+plt.rcParams.update(params)
+import matplotlib.pylab as pylab
+
+#pylab.rcParams.update(params)
+
+data.plot.bar(stacked=True,figsize=(18,8))
+plt.xlabel('Features')
+plt.ylabel('Votes')
+plt.savefig(graph_name,bbox_inches='tight',format="pdf")#, dpi=400)
+
+
+# In[31]:
+
+
+graph_name="Feature Selection with Voting3.PDF"
+import seaborn as sns
+sns.set_theme(style="whitegrid")
+params = {'legend.fontsize': 'x-large',
+          'figure.figsize': (10, 5),
+         'axes.labelsize': 'x-large',
+         'axes.titlesize':'x-large',
+         'xtick.labelsize':'medium',
+         'ytick.labelsize':'x-large'}
+plt.rcParams.update(params)
+import matplotlib.pylab as pylab
+
+#pylab.rcParams.update(params)
+
+data.plot.bar(stacked=True,figsize=(18,8))
+plt.xlabel('Features')
+plt.ylabel('Votes')
+plt.savefig(graph_name,bbox_inches='tight',format="pdf")#, dpi=400)
+
+
+# In[ ]:
+
+
+
 

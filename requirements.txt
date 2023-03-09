@@ -1,7 +1,7 @@
 # IMPORTANT !!!
 # if you have any error about xverse please see: https://github.com/kahramankostas/IoTDevIDv2/issues/2
-
-pandas==1.3.5 
+#pandas==1.3.5 # >python3.6  
+#pandas # python3.6  
 scikit-learn
 scipy 
 numpy 

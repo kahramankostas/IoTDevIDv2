@@ -186,15 +186,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 If you use the source code please cite the following paper:
 
 ```
-@ARTICLE{9832419,
-  author={Kostas, Kahraman and Just, Mike and Lones, Michael A.},
-  journal={IEEE Internet of Things Journal}, 
-  title={IoTDevID: A Behavior-Based Device Identification Method for the IoT}, 
-  year={2022},
-  volume={9},
-  number={23},
-  pages={23741-23749},
-  doi={10.1109/JIOT.2022.3191951}}
+@article{kostas2022iot,
+author = "Kahraman Kostas and Mike Just and Lones, {Michael Adam}",
+year = "2022",
+month = dec,
+day = "1",
+doi = "10.1109/JIOT.2022.3191951",
+language = "English",
+volume = "9",
+pages = "23741--23749",
+journal = "IEEE Internet of Things Journal",
+issn = "2327-4662",
+publisher = "IEEE",
+number = "23",
 }
 ```
 

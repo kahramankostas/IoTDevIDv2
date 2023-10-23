@@ -84,6 +84,8 @@ The processed datasets are shared in the repository. However, raw versions of th
 |[CIC-IoT-22](https://www.unb.ca/cic/datasets/iotdataset-2022.html)*| 2022|60|Benign & Malicious|
 |[LSIF](https://github.com/netlab-stevens/LSIF)**| 2020|22|Benign|
 
+*: The IoTDevID method was applied to this dataset as part of another study [Code](https://github.com/kahramankostas/IoTDevID-CIC)-[Paper](https://arxiv.org/abs/2307.08679)
+**: The IoTDevID method was applied to this dataset as part of another study  [Code](https://github.com/kahramankostas/IoTDevID-LSIF)-[Paper-see Chapter 4]()
 
 
 

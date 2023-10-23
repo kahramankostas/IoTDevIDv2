@@ -81,6 +81,10 @@ The processed datasets are shared in the repository. However, raw versions of th
 |[ Aalto University ](https://research.aalto.fi/en/datasets/iot-devices-captures)| 2016|31|Benign|
 |[ UNSW-Sydney IEEE TMC ](https://iotanalytics.unsw.edu.au/iottraces)| 2016|31|Benign|
 |[ UNSW-Sydney ACM SOSR](https://iotanalytics.unsw.edu.au/attack-data)| 2018|28|Benign & Malicious|
+|[CIC-IoT-22](https://www.unb.ca/cic/datasets/iotdataset-2022.html)*| 2022|60|Benign & Malicious|
+|[LSIF](https://github.com/netlab-stevens/LSIF)**| 2020|22|Benign|
+
+
 
 
 

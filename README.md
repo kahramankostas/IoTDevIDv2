@@ -13,6 +13,8 @@ Device identification is one way to secure a network of IoT devices, whereby dev
 
 <img src="https://github.com/kahramankostas/IoTDevID-CIC/blob/main/otheroutputs/IoTDevID.svg" alt="drawing" width="1800"/>
 <p style="text-align: center;">Fig 1 - A brief overview of the IoTDevID methodology.</p>
+
+
 # Requirements and Infrastructure: 
 
 Wireshark and Python 3.6 were used to create the application files. Before running the files, it must be ensured that [Wireshark](https://www.wireshark.org/), [Python 3.6+](https://www.python.org/downloads/) and the following libraries are installed.

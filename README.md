@@ -11,7 +11,8 @@ In this repository you will find a Python implementation of the methods in the p
 
 Device identification is one way to secure a network of IoT devices, whereby devices identified as suspicious can subsequently be isolated from a network. In this study, we present a machine learning-based method, *IoTDevID*, that recognises devices through characteristics of their network packets. As a result of using a rigorous feature analysis and selection process, our study offers a generalizable and realistic approach to modelling device behavior, achieving high predictive accuracy across two public datasets. The model's underlying feature set is shown to be more predictive than existing feature sets used for device identification, and is shown to generalise to data unseen during the feature selection process. Unlike most existing approaches to IoT device identification, IoTDevID is able to detect devices using non-IP and low-energy protocols.
 
-
+<img src="https://github.com/kahramankostas/IoTDevID-CIC/blob/main/otheroutputs/IoTDevID.svg" alt="drawing" width="1800"/>
+<p style="text-align: center;">Fig 1 - A brief overview of the IoTDevID methodology.</p>
 # Requirements and Infrastructure: 
 
 Wireshark and Python 3.6 were used to create the application files. Before running the files, it must be ensured that [Wireshark](https://www.wireshark.org/), [Python 3.6+](https://www.python.org/downloads/) and the following libraries are installed.

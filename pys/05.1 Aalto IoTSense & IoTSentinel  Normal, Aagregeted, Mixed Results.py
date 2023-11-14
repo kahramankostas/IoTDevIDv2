@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # ###  importing relevant libraries
@@ -21,14 +21,13 @@ from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis as QDA
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
-from sklearn.ensemble.bagging import BaggingClassifier
-from sklearn.ensemble.forest import ExtraTreesClassifier
+from sklearn.ensemble import BaggingClassifier
+from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import average_precision_score
 from sklearn.metrics import balanced_accuracy_score
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
-from sklearn.model_selection import KFold
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import BernoulliNB#57
@@ -365,9 +364,8 @@ folder(dataset)
 # In[27]:
 
 
-
-test='Aalto_IoTSentinel_Test.csv'
-train='Aalto_IoTSentinel_Train.csv'
+test='Aalto_test_IoTSentinel.csv'
+train='Aalto_BIG_train_IoTSentinel.csv'
 
 
 
@@ -388,9 +386,8 @@ ML(train,test,output_csv,feature,step,mixed,dataset[2:-1]+"_"+str(step))
 # In[28]:
 
 
-
-test='Aalto_IoTSentinel_Test.csv'
-train='Aalto_IoTSentinel_Train.csv'
+test='Aalto_test_IoTSentinel.csv'
+train='Aalto_BIG_train_IoTSentinel.csv'
 
 
 dataset="./sentinel/"
@@ -409,9 +406,8 @@ ML(train,test,output_csv,feature,step,mixed,dataset[2:-1]+"_"+str(step))
 # In[29]:
 
 
-test='Aalto_IoTSentinel_Test.csv'
-train='Aalto_IoTSentinel_Train.csv'
-
+test='Aalto_test_IoTSentinel.csv'
+train='Aalto_BIG_train_IoTSentinel.csv'
 
 dataset="./sentinel/"
 folder(dataset)
@@ -448,8 +444,8 @@ folder(dataset)
 # In[38]:
 
 
-test='Aalto_IoTSense_Test.csv'
-train='Aalto_IoTSense_Train.csv'
+test='Aalto_test_IoTSense.csv'
+train='Aalto_BIG_train_IoTSense.csv'
 
 
 
@@ -469,8 +465,8 @@ ML(train,test,output_csv,feature,step,mixed,dataset[2:-1]+"_"+str(step))
 # In[13]:
 
 
-test='Aalto_IoTSense_Test.csv'
-train='Aalto_IoTSense_Train.csv'
+test='Aalto_test_IoTSense.csv'
+train='Aalto_BIG_train_IoTSense.csv'
 
 dataset="./Sense/"
 folder(dataset)
@@ -488,8 +484,8 @@ ML(train,test,output_csv,feature,step,mixed,dataset[2:-1]+"_"+str(step))
 # In[14]:
 
 
-test='Aalto_IoTSense_Test.csv'
-train='Aalto_IoTSense_Train.csv'
+test='Aalto_test_IoTSense.csv'
+train='Aalto_BIG_train_IoTSense.csv'
 
 
 
@@ -530,7 +526,7 @@ folder(dataset)
 
 
 test='Aalto_test_IoTDevID.csv'
-train='Aalto_train_IoTDevID.csv'
+train='Aalto_BIG_train_IoTDevID.csv'
 
 
 
@@ -567,7 +563,6 @@ ML(train,test,output_csv,feature,step,mixed,dataset[2:-1]+"_"+str(step))
 # In[ ]:
 
 
-
 dataset="./IoTDevID/"
 folder(dataset)
 
@@ -577,4 +572,10 @@ sayac=1
 output_csv=dataset+str(sayac)+"_"+str(step)+"_"+str(mixed)+".csv"
 target_names=target_name(test)
 ML(train,test,output_csv,feature,step,mixed,dataset[2:-1]+"_"+str(step))   
+
+
+# In[ ]:
+
+
+
 

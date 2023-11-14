@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # ###  importing relevant libraries
@@ -21,14 +21,13 @@ from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis as QDA
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
-from sklearn.ensemble.bagging import BaggingClassifier
-from sklearn.ensemble.forest import ExtraTreesClassifier
+from sklearn.ensemble import BaggingClassifier
+from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import average_precision_score
 from sklearn.metrics import balanced_accuracy_score
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
-from sklearn.model_selection import KFold
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import BernoulliNB#57
@@ -344,10 +343,16 @@ dataset="./Aalto/"
 folder(dataset)
 
 
+# In[ ]:
+
+
+
+
+
 # In[22]:
 
 
-test='Aalto_test_IoTDevID.csv'
+test='Aalto_validation_IoTDevID.csv'
 train='Aalto_train_IoTDevID.csv'
 
 
@@ -418,4 +423,10 @@ plt.xlabel("Group size")
 plt.xticks(rotation=90) 
 #plt.ylim([0.69, 0.75]) 
 plt.savefig(graph_name,bbox_inches='tight',format="pdf")#, dpi=400)
+
+
+# In[ ]:
+
+
+
 

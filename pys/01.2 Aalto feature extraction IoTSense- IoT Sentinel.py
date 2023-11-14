@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # # This file extracts feature sets from pcap files.
@@ -15,7 +15,6 @@
 # ###  importing relevant libraries
 
 # In[1]:
-
 
 
 from scapy.all import*
@@ -51,6 +50,7 @@ path="./captures_IoT-Sentinel\\"
 # In[4]:
 
 
+path="./captures_IoT_Sentinel\\"
 def find_the_way(path,file_format):
     files_add = []
     # r=root, d=directories, f = files
@@ -68,13 +68,16 @@ files_add
 
 train=[]
 test=[]
-
+validation=[]
 for ii, i in enumerate(files_add):
     print(ii,i)
-    if ii%5==0:
-        test.append(i)
-    else:
-        train.append(i)
+    if ii%5!=0:
+        if ii%4==0:
+            validation.append(i)
+            test.append(files_add[ii+1])
+
+        else:
+            train.append(i)
 
 
 # ### Port numbers are classified in this part as:
@@ -243,7 +246,7 @@ MAC_list={
 # 
 # # ↓ 
 
-# In[9]:
+# In[11]:
 
 
 def pre_entropy(payload):
@@ -271,12 +274,12 @@ def shannon(data):
     return -entropy
 
 
-# In[10]:
+# In[15]:
 
 
 import time 
-dataset_name=["Train.csv", "Test.csv"]
-for numero,dataset in enumerate ([train,test]):
+dataset_name=["Train.csv","Validation.csv", "Test.csv"]
+for numero,dataset in enumerate ([train,validation,test]):
     count=0
     ths = open(dataset_name[numero], "w")
     header="ARP,LLC,EAPOL,IP,ICMP,ICMP6,TCP,UDP,TCP_w_size,HTTP,HTTPS,DHCP,BOOTP,SSDP,DNS,MDNS,NTP,IP_padding,IP_add_count,IP_ralert,Portcl_src,Portcl_dst,Pck_size,Pck_rawdata,payload_l,Entropy,Label,MAC,Folder,Session\n"
@@ -449,13 +452,13 @@ for numero,dataset in enumerate ([train,test]):
 
 # ### Generates  IoTSentinel, IoTSense feature sets
 
-# In[11]:
+# In[16]:
 
 
 Folder= {'Aria': 'Aria', 'D-LinkCam': 'D-LinkCam', 'D-LinkDayCam': 'D-LinkDayCam', 'D-LinkDoorSensor': 'D-LinkDoorSensor', 'D-LinkHomeHub': 'D-LinkHomeHub', 'D-LinkSensor': 'D-LinkSensor', 'D-LinkSiren': 'D-LinkSiren', 'D-LinkSwitch': 'D-LinkSwitch', 'D-LinkWaterSensor': 'D-LinkWaterSensor', 'EdimaxCam1': 'EdimaxCam', 'EdimaxCam2': 'EdimaxCam', 'EdimaxPlug1101W': 'EdimaxPlug1101W', 'EdimaxPlug2101W': 'EdimaxPlug2101W', 'EdnetCam1': 'EdnetCam', 'EdnetCam2': 'EdnetCam', 'EdnetGateway': 'EdnetGateway', 'HomeMaticPlug': 'HomeMaticPlug', 'HueBridge': 'HueBridge', 'HueSwitch': 'HueSwitch', 'iKettle2': 'iKettle2', 'Lightify': 'Lightify', 'MAXGateway': 'MAXGateway', 'SmarterCoffee': 'SmarterCoffee', 'TP-LinkPlugHS100': 'TP-LinkPlugHS100', 'TP-LinkPlugHS110': 'TP-LinkPlugHS110', 'WeMoInsightSwitch': 'WeMoInsightSwitch', 'WeMoInsightSwitch2': 'WeMoInsightSwitch', 'WeMoLink': 'WeMoLink', 'WeMoSwitch': 'WeMoSwitch', 'WeMoSwitch2': 'WeMoSwitch', 'Withings': 'Withings'}
 
 
-# In[13]:
+# In[17]:
 
 
 for i in dataset_name:
@@ -483,4 +486,17 @@ for i in dataset_name:
     
 os.remove("Train.csv")
 os.remove("Test.csv")
+os.remove("Validation.csv")
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
 

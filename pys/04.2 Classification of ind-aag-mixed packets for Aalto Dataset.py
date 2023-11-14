@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # ###  importing relevant libraries
@@ -21,14 +21,13 @@ from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis as QDA
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
-from sklearn.ensemble.bagging import BaggingClassifier
-from sklearn.ensemble.forest import ExtraTreesClassifier
+from sklearn.ensemble import BaggingClassifier
+from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import average_precision_score
 from sklearn.metrics import balanced_accuracy_score
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
-from sklearn.model_selection import KFold
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import BernoulliNB#57
@@ -89,6 +88,8 @@ def find_the_way(path,file_format):
                 files_add.append(os.path.join(r, file))  
     return files_add
 
+
+# 
 
 # In[6]:
 
@@ -338,7 +339,7 @@ folder(dataset)
 
 
 test='Aalto_test_IoTDevID.csv'
-train='Aalto_train_IoTDevID.csv'
+train='Aalto_BIG_train_IoTDevID.csv'
 
 
 
@@ -353,13 +354,19 @@ target_names=target_name(test)
 ML(train,test,output_csv,feature,step,mixed,dataset[2:-1]+"_"+str(step))   
 
 
+# In[ ]:
+
+
+
+
+
 # # Aggregated Results (Size 13)
 
 # In[29]:
 
 
 test='Aalto_test_IoTDevID.csv'
-train='Aalto_train_IoTDevID.csv'
+train='Aalto_BIG_train_IoTDevID.csv'
 
 
 
@@ -380,7 +387,7 @@ ML(train,test,output_csv,feature,step,mixed,dataset[2:-1]+"_"+str(step))
 
 
 test='Aalto_test_IoTDevID.csv'
-train='Aalto_train_IoTDevID.csv'
+train='Aalto_BIG_train_IoTDevID.csv'
 
 
 

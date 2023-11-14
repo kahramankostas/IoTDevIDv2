@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # # genetic algorithm
@@ -143,7 +143,7 @@ len(cols)
 # In[8]:
 
 
-test='./Aalto_test_IoTDevID.csv'
+test='./Aalto_validation_IoTDevID.csv'
 train='./Aalto_train_IoTDevID.csv'
 
 df = pd.read_csv(train,usecols=cols)#,header=None )
@@ -292,6 +292,12 @@ print ('%-30s %-30s' % (np.mean(results),np.std(results)))
 chromo
 
 
+# In[ ]:
+
+
+
+
+
 # In[16]:
 
 
@@ -302,6 +308,12 @@ for j in chromo:
     temp.append("Label")
     sonuç.append(temp)
 print(sonuç)
+
+
+# In[ ]:
+
+
+
 
 
 # In[17]:
@@ -357,6 +369,12 @@ for sayac,feature in enumerate(features):
     feature.insert(0,"MAC")
     ML(train,test,output_csv,feature,step,mixed,dataset,ml_list,cm,repetition)  
  
+
+
+# In[ ]:
+
+
+
 
 
 # In[7]:
@@ -503,6 +521,12 @@ aalto=aalto.sort_values(by=[' F1-score'])
 aalto
 
 aalto.to_csv("mean_100.csv")
+
+
+# In[ ]:
+
+
+
 
 
 # In[28]:

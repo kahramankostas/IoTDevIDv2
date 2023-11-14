@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # ### You can access the UNSW datasets used in our study from the links below.
@@ -57,6 +57,12 @@ def find_the_way(path,file_format):
 #files_add=find_the_way("./",'.pcap')
 files_add=find_the_way("./UNSW_PCAP",'.pcap')
 files_add
+
+
+# In[ ]:
+
+
+
 
 
 # # PCAP2CSV
@@ -221,6 +227,12 @@ MAC_list={
  'bc:f5:ac:f4:c0:9d': 'unknown'}
 
 
+# In[ ]:
+
+
+
+
+
 # In[16]:
 
 
@@ -251,6 +263,12 @@ def pre_entropy(payload):
             characters.append(i)
     return shannon(characters)
             
+
+
+# In[ ]:
+
+
+
 
 
 # In[17]:
@@ -309,8 +327,6 @@ DF= 0x02
 
 
 # In[20]:
-
-
 
 
 ipf=[]
@@ -1073,7 +1089,6 @@ label= {'Android Phone 1':'Non-IoT', 'Android Phone 2': 'Non-IoT',
 # In[27]:
 
 
-
 name_list
 
 
@@ -1155,4 +1170,16 @@ for i in name:
 name_list=find_the_way('./UNSW_PCAP/','.csv')
 for i in name_list:
     os.remove(i)
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
 

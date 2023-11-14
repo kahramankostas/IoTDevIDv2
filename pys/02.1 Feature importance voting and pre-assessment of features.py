@@ -322,13 +322,16 @@ for i in name_list:
     ML(i,i,output_csv,features,step,Tree)   
 
 
-# # voting process for device csv files
-# # each voting action is saved in a separate csv file
+# #### voting process for device csv files
+# #### each voting action is saved in a separate csv file
 
-# # IMPORTANT !!!
 # 
-# # Xverse library crashes on versions greater than Python3.6. If you get an error, try Python3.6
-# # we used Python 3.6.6 version in this application
+# # IMPORTANT !!!
+# # if you have any error about xverse please see: https://github.com/kahramankostas/IoTDevIDv2/issues/2
+# 
+# ### and be sure about requirements.txt
+# 
+# 
 
 # In[ ]:
 

@@ -1,14 +1,14 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[4]:
 
 
 import warnings
 warnings.filterwarnings("ignore")
 
 
-# In[2]:
+# In[5]:
 
 
 get_ipython().run_line_magic('matplotlib', 'inline')
@@ -44,7 +44,7 @@ from sklearn.metrics import classification_report
 from sklearn.utils import shuffle
 
 
-# In[3]:
+# In[6]:
 
 
 def folder(f_name): #this function creates a folder named "attacks" in the program directory.
@@ -55,7 +55,7 @@ def folder(f_name): #this function creates a folder named "attacks" in the progr
         print ("The folder could not be created!")
 
 
-# In[4]:
+# In[7]:
 
 
 def find_the_way(path,file_format):
@@ -264,7 +264,7 @@ folder("isolated")
 # In[14]:
 
 
-test='Aalto_test_IoTDevID.csv'
+test='Aalto_validation_IoTDevID.csv'
 train='Aalto_train_IoTDevID.csv'
 
 iden,features=feature_names()
@@ -305,7 +305,7 @@ folder("crossval")
 # In[16]:
 
 
-test='Aalto_test_IoTDevID.csv'
+test='Aalto_validation_IoTDevID.csv'
 train='Aalto_train_IoTDevID.csv'
 
 
@@ -446,7 +446,7 @@ ML_CV(train,test,output_csv,iden+features,step,flexible,i)
 
 # # Taking the average for comparison and displaying the results on the graph.
 
-# In[21]:
+# In[32]:
 
 
 import matplotlib.pylab as pylab
@@ -455,7 +455,7 @@ import matplotlib.pyplot as plt
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 
-# In[22]:
+# In[33]:
 
 
 def average_values(name_list):
@@ -475,7 +475,7 @@ def average_values(name_list):
 
 # ## isolated
 
-# In[23]:
+# In[34]:
 
 
 name_list=find_the_way('./isolated/','.csv')
@@ -486,7 +486,7 @@ iso
 
 # ## crossvalidated
 
-# In[24]:
+# In[35]:
 
 
 name_list=find_the_way('./crossval/','.csv')
@@ -495,7 +495,7 @@ cv=average_values(name_list)
 cv
 
 
-# In[27]:
+# In[36]:
 
 
 etiket=['Primary',
@@ -519,7 +519,7 @@ etiket=['Primary',
  'All together']
 
 
-# In[29]:
+# In[37]:
 
 
 graph_name="Comparison of isolated and CV methods.pdf"
@@ -548,5 +548,41 @@ plt.legend(numpoints=1)
 plt.ylabel("F1 Score")
 plt.xticks(rotation=90) 
 #plt.ylim([0.69, 0.71]) 
+plt.savefig(graph_name,bbox_inches='tight',format="pdf")#, dpi=400)
+
+
+# In[43]:
+
+
+iso
+
+
+# In[47]:
+
+
+bar_graph=pd.DataFrame()
+bar_graph["Names"]=etiket
+bar_graph["Isolated train & test"]= iso[' F1-score'].values
+bar_graph=bar_graph.set_index('Names')
+
+
+# In[48]:
+
+
+bar_graph["5-Fold CV"]=cv[' F1-score'].values
+bar_graph
+
+
+# In[67]:
+
+
+graph_name="BAR_Comparison of isolated and CV methods.pdf"
+ax = bar_graph.plot.bar(rot=90,color=['g',  'b'])
+plt.axhline(0.673052, color='r',label= "Primary feature list")
+plt.legend(numpoints=1)
+plt.title("Comparison of isolated data and merged-cross-validated data result according to features")
+plt.legend(numpoints=1,loc="upper left")
+#plt.legend(bbox_to_anchor=(1.04,1), loc="upper left")
+plt.ylabel("F1 Score")
 plt.savefig(graph_name,bbox_inches='tight',format="pdf")#, dpi=400)
 

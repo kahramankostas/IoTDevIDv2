@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # ###  importing relevant libraries
@@ -23,7 +23,6 @@ from sklearn.metrics import average_precision_score
 from sklearn.metrics import balanced_accuracy_score
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
-from sklearn.model_selection import KFold
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import BernoulliNB#57
@@ -220,6 +219,12 @@ def score(altime,train_time,test_time,predict,y_test,class_based_results,i,cv,dn
     return lines,class_based_results
 
 
+# In[ ]:
+
+
+
+
+
 # In[8]:
 
 
@@ -413,9 +418,8 @@ def target_name(name):
 # In[24]:
 
 
-
 test='Aalto_test_IoTDevID.csv'
-train='Aalto_train_IoTDevID.csv'
+train='Aalto_BIG_train_IoTDevID.csv'
 
 
 
@@ -433,9 +437,8 @@ ML(train,test,output_csv,feature,step,mixed,dataset[2:-1]+"_"+str(step))
 # In[25]:
 
 
-
 test='Aalto_test_IoTDevID.csv'
-train='Aalto_train_IoTDevID.csv'
+train='Aalto_BIG_train_IoTDevID.csv'
 
 
 dataset="./Aalto combined labels/"

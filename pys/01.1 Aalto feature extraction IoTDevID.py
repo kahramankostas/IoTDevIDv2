@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # ### You can access the  Aalto University IoT devices captures  data used in our study from the link below.
@@ -28,18 +28,18 @@ def folder(f_name): #this function creates a folder named "attacks" in the progr
         print ("The folder could not be created!")
 
 
-# In[3]:
+# In[ ]:
 
 
 path="captures_IoT_Sentinel.zip"
 with zipfile.ZipFile(path, 'r') as zip_ref:
     zip_ref.extractall("./")
-path="./captures_IoT-Sentinel\\"
 
 
-# In[5]:
+# In[3]:
 
 
+path="./captures_IoT_Sentinel/"
 def find_the_way(path,file_format):
     files_add = []
     # r=root, d=directories, f = files
@@ -52,35 +52,44 @@ files_add=find_the_way(path,'.pcap')
 files_add
 
 
-# In[6]:
+# In[4]:
+
+
+len(files_add)
+
+
+# In[5]:
 
 
 train=[]
 test=[]
-
+validation=[]
 for ii, i in enumerate(files_add):
     print(ii,i)
-    if ii%5==0:
-        test.append(i)
-    else:
-        train.append(i)
+    if ii%5!=0:
+        if ii%4==0:
+            validation.append(i)
+            test.append(files_add[ii+1])
+
+        else:
+            train.append(i)
 
 
-# In[7]:
+# In[6]:
 
 
-len(test),len(train)
+len(test),len(train),len(validation)
 
 
 # # PCAP2CSV
 
-# In[8]:
+# In[7]:
 
 
 from scapy.all import*
 
 
-# In[9]:
+# In[8]:
 
 
 import math
@@ -89,7 +98,7 @@ import os
 import numpy as np
 
 
-# In[10]:
+# In[9]:
 
 
 def folder(f_name): #this function creates a folder.
@@ -102,7 +111,7 @@ def folder(f_name): #this function creates a folder.
 
 # # MAC adress list
 
-# In[11]:
+# In[10]:
 
 
 MAC_list={
@@ -228,39 +237,52 @@ MAC_list={
  'bc:f5:ac:f4:c0:9d': 'unknown'}
 
 
-# In[12]:
+# In[11]:
 
 
 train
 
 
-# In[13]:
+# In[12]:
 
 
 test
 
 
-# In[14]:
+# In[13]:
 
 
 len(train)
 
 
-# In[15]:
+# In[14]:
 
 
 len(test)
 
 
-# In[30]:
+# In[15]:
 
 
-# specify which dataset you want to create (training and testing) .
+len(validation)
+
+
+# In[ ]:
+
+
+
+
+
+# In[44]:
+
+
+# specify which dataset you want to create (training, validation and testing) .
 files_add=train;file_name="Aalto_train_IoTDevID.csv"
-#files_add=test;file_name="Aalto_test_IoTDevID.csv"
+files_add=validation;file_name="Aalto_validation_IoTDevID.csv"
+files_add=test;file_name="Aalto_test_IoTDevID.csv"
 
 
-# In[31]:
+# In[45]:
 
 
 def shannon(data):
@@ -292,7 +314,7 @@ def pre_entropy(payload):
             
 
 
-# In[32]:
+# In[46]:
 
 
 def port_class(port):
@@ -320,7 +342,7 @@ def port_1023(port):
         return 0
 
 
-# In[33]:
+# In[47]:
 
 
 header="pck_size,Ether_type,LLC_dsap,LLC_ssap,LLC_ctrl,EAPOL_version,EAPOL_type,EAPOL_len,IP_version,IP_ihl,IP_tos,IP_len,IP_flags,IP_Z,IP_MF,IP_id,IP_chksum,IP_DF,IP_frag,IP_ttl,IP_proto,IP_options,IP_add_count,ICMP_type,ICMP_code,ICMP_chksum,ICMP_id,ICMP_seq,ICMP_ts_ori,ICMP_ts_rx,ICMP_ts_tx,ICMP_ptr,ICMP_reserved,ICMP_length,ICMP_nexthopmtu,ICMP_unused,TCP_seq,TCP_ack,TCP_dataofs,TCP_reserved,TCP_flags,TCP_FIN,TCP_SYN,TCP_RST,TCP_PSH,TCP_ACK,TCP_URG,TCP_ECE,TCP_CWR,TCP_window,TCP_chksum,TCP_urgptr,TCP_options,UDP_len,UDP_chksum,DHCP_options,BOOTP_op,BOOTP_htype,BOOTP_hlen,BOOTP_hops,BOOTP_xid,BOOTP_secs,BOOTP_flags,BOOTP_sname,BOOTP_file,BOOTP_options,DNS_length,DNS_id,DNS_qr,DNS_opcode,DNS_aa,DNS_tc,DNS_rd,DNS_ra,DNS_z,DNS_ad,DNS_cd,DNS_rcode,DNS_qdcount,DNS_ancount,DNS_nscount,DNS_arcount,sport_class,dport_class,sport23,dport23,sport_bare,dport_bare,TCP_sport,TCP_dport,UDP_sport,UDP_dport,payload_bytes,entropy,Label,MAC,Folder,Session\n"
@@ -328,7 +350,7 @@ header="pck_size,Ether_type,LLC_dsap,LLC_ssap,LLC_ctrl,EAPOL_version,EAPOL_type,
 #header="pck_size,Ether_type,LLC_dsap,LLC_ssap,LLC_ctrl,EAPOL_version,EAPOL_type,EAPOL_len,IP_version,IP_ihl,IP_tos,IP_len,IP_flags,IP_frag,IP_ttl,IP_proto,IP_options,IP_add_count,ICMP_type,ICMP_code,ICMP_seq,ICMP_ts_ori,ICMP_ts_rx,ICMP_ts_tx,ICMP_gw,ICMP_ptr,ICMP_reserved,ICMP_length,ICMP_nexthopmtu,ICMP_unused,TCP_dataofs,TCP_reserved,TCP_flags,TCP_window,TCP_urgptr,UDP_len,BOOTP_op,BOOTP_htype,BOOTP_hlen,BOOTP_hops,BOOTP_secs,BOOTP_flags,DNS_length,DNS_qr,DNS_opcode,DNS_aa,DNS_tc,DNS_rd,DNS_ra,DNS_z,DNS_ad,DNS_cd,DNS_rcode,DNS_qdcount,DNS_ancount,DNS_nscount,DNS_arcount,sport,dport,entropy,Label,MAC\n"
 
 
-# In[34]:
+# In[48]:
 
 
 #flags
@@ -347,9 +369,7 @@ MF= 0x01
 DF= 0x02
 
 
-# In[35]:
-
-
+# In[49]:
 
 
 ipf=[]
@@ -962,13 +982,19 @@ ths.close()
  
 
 
-# In[36]:
+# In[ ]:
+
+
+
+
+
+# In[50]:
 
 
 # Add Protocol feature using tshark
 
 
-# In[37]:
+# In[51]:
 
 
 filename="Protocol.csv"
@@ -993,7 +1019,7 @@ for ii,i in enumerate(files_add):
 ths.close()  
 
 
-# In[38]:
+# In[52]:
 
 
 df1=pd.read_csv("aalto.csv")
@@ -1003,7 +1029,13 @@ df1["Protocol"]=df2["Protocol"]
 df1.to_csv(file_name,index=None)
 
 
-# In[39]:
+# In[ ]:
+
+
+
+
+
+# In[53]:
 
 
 IP_flags = {'0': 1, '<Flag 0 ()>': 2, '<Flag 2 (DF)>': 3, '<Flag 1 (MF)>': 4}
@@ -1064,13 +1096,13 @@ Protocol = {'EAPOL': 1, 'DHCP': 2, 'DNS': 3, 'TCP': 4, 'HTTP': 5, 'ICMP': 6, 'MD
 Folder= {'Aria': 'Aria', 'D-LinkCam': 'D-LinkCam', 'D-LinkDayCam': 'D-LinkDayCam', 'D-LinkDoorSensor': 'D-LinkDoorSensor', 'D-LinkHomeHub': 'D-LinkHomeHub', 'D-LinkSensor': 'D-LinkSensor', 'D-LinkSiren': 'D-LinkSiren', 'D-LinkSwitch': 'D-LinkSwitch', 'D-LinkWaterSensor': 'D-LinkWaterSensor', 'EdimaxCam1': 'EdimaxCam', 'EdimaxCam2': 'EdimaxCam', 'EdimaxPlug1101W': 'EdimaxPlug1101W', 'EdimaxPlug2101W': 'EdimaxPlug2101W', 'EdnetCam1': 'EdnetCam', 'EdnetCam2': 'EdnetCam', 'EdnetGateway': 'EdnetGateway', 'HomeMaticPlug': 'HomeMaticPlug', 'HueBridge': 'HueBridge', 'HueSwitch': 'HueSwitch', 'iKettle2': 'iKettle2', 'Lightify': 'Lightify', 'MAXGateway': 'MAXGateway', 'SmarterCoffee': 'SmarterCoffee', 'TP-LinkPlugHS100': 'TP-LinkPlugHS100', 'TP-LinkPlugHS110': 'TP-LinkPlugHS110', 'WeMoInsightSwitch': 'WeMoInsightSwitch', 'WeMoInsightSwitch2': 'WeMoInsightSwitch', 'WeMoLink': 'WeMoLink', 'WeMoSwitch': 'WeMoSwitch', 'WeMoSwitch2': 'WeMoSwitch', 'Withings': 'Withings'}
 
 
-# In[40]:
+# In[54]:
 
 
 df=pd.read_csv(file_name)
 
 
-# In[41]:
+# In[55]:
 
 
 df=df.replace({"IP_flags": IP_flags})
@@ -1084,13 +1116,13 @@ del df["Folder"]
 del df["Session"]
 
 
-# In[42]:
+# In[56]:
 
 
 df
 
 
-# In[43]:
+# In[57]:
 
 
 df.to_csv(file_name,index=None)
@@ -1099,3 +1131,19 @@ os.remove("Protocol.csv")
 
 
 # ________________
+
+# In[59]:
+
+
+df1=pd.read_csv("Aalto_train_IoTDevID.csv")
+df2=pd.read_csv("Aalto_validation_IoTDevID.csv")
+frames = [df1, df2]
+result = pd.concat(frames)
+result.to_csv("Aalto_BIG_train_IoTDevID.csv",index=None)
+
+
+# In[ ]:
+
+
+
+

@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # ### You can access the UNSW datasets used in our study from the links below.
@@ -520,6 +520,12 @@ for i in name:
 # In[ ]:
 
 
+
+
+
+# In[ ]:
+
+
 name_list=find_the_way('./UNSW_PCAP/TEST','.csv')
 name_list=name_list+shared_test
 name={"UNSW_IoT_test.csv":2000}
@@ -544,6 +550,24 @@ for i in name:
     df=pd.read_csv(i)
     df=df.replace({"Label": label})
     df.to_csv(i,index=None)
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
 
 
 
@@ -594,6 +618,18 @@ df=df.drop(columns=deleted)
 df.to_csv(name, index=False)
 
 
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
 # ## Delete unnecessary CSV files
 
 # In[ ]:
@@ -604,4 +640,16 @@ for i in name_list:
     os.remove(i)
 os.remove("UNSW_IoT_test.csv")
 os.remove("UNSW_IoT_train.csv")
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
 

@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # ###  importing relevant libraries
@@ -21,14 +21,13 @@ from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis as QDA
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
-from sklearn.ensemble.bagging import BaggingClassifier
-from sklearn.ensemble.forest import ExtraTreesClassifier
+from sklearn.ensemble import BaggingClassifier
+from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import average_precision_score
 from sklearn.metrics import balanced_accuracy_score
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
-from sklearn.model_selection import KFold
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import BernoulliNB#57
@@ -369,8 +368,8 @@ folder(dataset)
 # In[17]:
 
 
-test='UNSW_IoTSentinel_Test.csv'
-train='UNSW_IoTSentinel_Train.csv'
+test='UNSW_test_IoTSentinel.csv'
+train='UNSW_BIG_train_IoTSentinel.csv'
 
 dataset="./sentinel/"
 folder(dataset)
@@ -386,8 +385,6 @@ ML(train,test,output_csv,feature,step,mixed,dataset[2:-1]+"_"+str(step))
 # ###  IoT Sentinel Aagregeted 
 
 # In[18]:
-
-
 
 
 dataset="./sentinel/"
@@ -419,6 +416,12 @@ ML(train,test,output_csv,feature,step,mixed,dataset[2:-1]+"_"+str(step))
 
 # # IoTsense
 
+# In[ ]:
+
+
+
+
+
 # In[20]:
 
 
@@ -443,8 +446,8 @@ folder(dataset)
 # In[22]:
 
 
-test='UNSW_IoTSense_Test.csv'
-train='UNSW_IoTSense_Train.csv'
+test='UNSW_test_IoTSense.csv'
+train='UNSW_BIG_train_IoTSense.csv'
 
 
 
@@ -464,8 +467,6 @@ ML(train,test,output_csv,feature,step,mixed,dataset[2:-1]+"_"+str(step))
 # In[23]:
 
 
-
-
 dataset="./Sense/"
 folder(dataset)
 
@@ -480,7 +481,6 @@ ML(train,test,output_csv,feature,step,mixed,dataset[2:-1]+"_"+str(step))
 # ###  IoTSense Mixed
 
 # In[24]:
-
 
 
 dataset="./Sense/"
@@ -521,7 +521,7 @@ folder(dataset)
 
 
 test='UNSW_test_IoTDevID.csv'
-train='UNSW_train_IoTDevID.csv'
+train='UNSW_BIG_train_IoTDevID.csv'
 
 
 
@@ -558,7 +558,6 @@ ML(train,test,output_csv,feature,step,mixed,dataset[2:-1]+"_"+str(step))
 # In[29]:
 
 
-
 dataset="./IoTDevID/"
 folder(dataset)
 
@@ -568,4 +567,10 @@ sayac=1
 output_csv=dataset+str(sayac)+"_"+str(step)+"_"+str(mixed)+".csv"
 target_names=target_name(test)
 ML(train,test,output_csv,feature,step,mixed,dataset[2:-1]+"_"+str(step))   
+
+
+# In[ ]:
+
+
+
 

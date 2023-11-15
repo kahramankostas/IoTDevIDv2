@@ -1,0 +1,2 @@
+solver,learning_rate,hidden_layer_sizes,alpha,activation,F1,Std,Time,No,Attack
+adam,constant,"(1220, 1965)",0.1,relu,0.30080728295490694,0.0,27709.987,0,AaDevID

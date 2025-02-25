@@ -3,7 +3,7 @@ scikit-learn
 scipy 
 numpy 
 matplotlib
-git+https://github.com/kahramankostas/XuniVerse
+xverse
 graphviz 
 seaborn 
 scapy
